@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video id="videoElement" width="400" height="300" autoplay></video>
+<button onclick="startCamera()">Abre camera </button>
+<button onclick="stopCamera()">Fecha camera</button>
+
+<script>
+let videoStream
+async function startCamera(){
+    const VideoElement = document.getElementById('videoElement')
+    try{
+        videoStream = await navigator.mediaDevices.getUserMedia({video : true});
+        VideoElement.srcObject = videoStream;
+    }catch(error){
+        console.error('Error ao abrir a camera',error);
+        alert ('Erro ao abrir a camera');
+    }
+}
+async function stopCamera(){
+    const videoElement = document.getElementById('VideoElement');
+    if (videoStream){
+        const tracks = videoStream.getTracks();
+        tracks.forEach(track => track.stop());
+        videoElement.srcObject = null;
+        };
+     }
+
+
+</script>
+
+</body>
+</html>

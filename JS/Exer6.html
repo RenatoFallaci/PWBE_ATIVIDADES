@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Referência Bibliografica</h1>
+          Nome do ator  <input type="text" id="autor">
+<br><button onclick="Bibliografica()">Gerar citação Bibliografica</button>
+<p id="citação"></p>
+   
+
+<script>
+function Bibliografica(){
+var autor = document.getElementById("autor").value;
+let text= autor;
+const myArray = text.split (" ");
+document.getElementById("citação").innerHTML = myArray
+}
+</script>
+
+
+    
+</body>
+</html>

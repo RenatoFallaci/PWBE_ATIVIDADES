@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification</title>
+</head>
+<body>
+    <h1>Simulação de notificações</h1>
+    <div id="notificacoes"></div>
+    <script>
+        let usuarios = [
+            {id: 1, nome: "lucas", token: "token_usuario_1"},
+            {id: 2, nome: "renato", token: "token_usuario_2"},
+            {id: 3, nome: "thiago", token: "token_usuario_3"}
+        ];
+        function pushNotification(usuario, noticia){
+            console.log(`Enviando notificacoes para ${usuario.nome} : ${noticia}`);
+            const divNotificacoes = document.getElementById('notificacoes');
+            divNotificacoes.innerHTML += `<p> Para: ${usuario.nome} - Noticia: ${noticia} </p>`;
+        }
+        let listaDeNoticias = [
+            "Cristiano Ronaldo sofre lesao ",
+            "Libertadores final",
+            "Neymar nao vai joga a copa",
+        ];
+        function simularNotificacoesPush(){
+            usuarios.forEach(usuario => {
+                let noticiaAleatoria = listaDeNoticias[Math.floor(Math.random() * listaDeNoticias.length)];
+                pushNotification(usuario, noticiaAleatoria);
+            });
+        }
+        simularNotificacoesPush();
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        
+<canvas id="meuCanvas" width="800" height="800"></canvas>
+<script>
+    var canvas = document.getElementById("meuCanvas");
+    var ctx = canvas.getContext("2d");
+    var x = canvas.width /2;
+    var y = canvas.height /2;
+    var raio = 10;
+    var velx = 1;
+    var vely = 2;
+
+    function circulo(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle ="red";
+    ctx.beginPath();
+    ctx.arc(x,y,raio,0,Math.PI * 2);
+    ctx.fill();
+
+    x +=vely;
+    y +=vely;
+    if (x + raio> canvas.width || x - raio < 0){
+        velx =-velx;
+    }
+    if(y + raio > canvas.height || y + raio <0){
+        velx=-velx;
+    }
+requestAnimationFrame(circulo);
+    }
+    circulo();
+</script>
+</body>
+</html>

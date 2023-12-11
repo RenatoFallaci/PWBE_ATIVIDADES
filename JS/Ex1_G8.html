@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img class="filme1" src="../IMG/filme.jpg" width="220"   height="250">
+    <img class="filme" src="../IMG/filme 2.png" width="220"   height="250">
+    <img class="filme" src="../IMG/filme3.jpeg" width="220"   height="250">
+    <img class="filme" src="../IMG/filme5.jpg" width="220"   height="250">
+
+    <h1>Locadora de filmes </h1>
+    Nome do filme:<input type="type" id="filme" value="" size="15">
+   <br><br>Minutos:<input type="type" id="hora" value="" size="15">
+   
+<br><br> <button onclick="vermin()">Duração</button>
+<p id="a">Nome do filme  </p>
+<p id="b">Minutos total:</p>
+
+<script>
+function vermin(){
+var filme = document.getElementById("filme").value;
+document.getElementById("a").innerHTML="O filme escolhido foi: "+ filme;
+var hora = document.getElementById("hora").value;
+hora = hora /60;
+    
+    document.getElementById("b").innerHTML="O filme tem um total de: "+ hora+ "horas";
+    localStorage.setItem("filmeNome", filme);
+    localStorage.setItem("filmeDuracao", hora);
+    }
+ window.onload = function() {// permite que você execute código JavaScript assim que uma página web é carregada completamente. 
+const filmeNome = localStorage.getItem("filmeNome");
+ const filmeDuracao = localStorage.getItem("filmeDuracao");
+
+if(filmeNome && filmeDuracao) {
+document.getElementById("filme").value = filmeNome;
+document.getElementById("hora").value = filmeDuracao;horasParaMinutos(); 
+}
+}
+</script>                                                                                                                                    
+</body>
